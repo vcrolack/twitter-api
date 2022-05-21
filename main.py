@@ -6,7 +6,7 @@ from typing import List
 from fastapi import FastAPI, status
 
 #Models 
-from models import User, UserBase, UserLogin, Tweet
+from models import User, UserBase, UserLogin, Tweet, UserRegister
 
 app = FastAPI()
 
@@ -23,7 +23,22 @@ app = FastAPI()
     tags=["Users"]
 )
 def signup():
-    pass
+    """
+    Sign up a user
+
+    This path operation register a user in the app
+
+    Parameters:
+        -Request body parameter
+            - user: UserRegister
+
+    Returns a json with the basic user informations:
+        - user_id: UUID
+        - email: EmailStr
+        - first_name: str
+        - last_name: str
+        -birth_dat: str
+    """
 
 @app.post(
     path="/login",
